@@ -3,9 +3,7 @@ name = "rust_to_c"
 version = "0.1.0"
 edition = "2021"
 
-[dependencies]
-
 [lib]
-name = "sum"
+name = "luatuser"
 crate-type = ["staticlib"]
-path = "src/lib.rs"
+path = "src/luat_user_main.rs"
