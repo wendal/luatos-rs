@@ -1,5 +1,5 @@
 use core::ffi::{c_void, c_uchar, c_uint};
-use core::fmt;
+// use core::fmt;
 
 use alloc::string::String;
 
@@ -15,21 +15,21 @@ pub fn write(msg: &str) -> () {
     }
 }
 
-pub struct LogOut {
+// pub struct LogOut {
 
-}
+// }
 
-impl fmt::Write for LogOut {
-    fn write_str(&mut self, s: &str) -> fmt::Result {
-        write(s);
-        fmt::Result::Ok(())
-    }
-}
+// impl fmt::Write for LogOut {
+//     fn write_str(&mut self, s: &str) -> fmt::Result {
+//         write(s);
+//         fmt::Result::Ok(())
+//     }
+// }
 
-impl LogOut {
-    pub fn debug(self, s: String) -> () {
+// impl LogOut {
+    pub fn debug(s: String) -> () {
         write(s.as_str());
     }
-}
+// }
 
 // pub static LOGGER: LogOut = LogOut {};

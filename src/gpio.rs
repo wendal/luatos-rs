@@ -1,5 +1,8 @@
-use core::ffi::{c_int, c_uchar, c_void};
 
+extern crate core;
+extern crate alloc;
+
+use core::ffi::{c_int, c_uchar, c_void};
 
 pub enum PullConfig {
     OpenDrain = 0,
@@ -30,7 +33,7 @@ extern "C" {
     fn luat_gpio_set(pin: c_int, value: c_int) -> c_void;
     fn luat_gpio_get(pin: c_int) -> c_int;
     fn luat_gpio_close(pin: c_int) -> c_void;
-    fn luat_gpio_set_default_cfg(cfg: *const LuatGpioCfg);
+    // fn luat_gpio_set_default_cfg(cfg: *const LuatGpioCfg);
     fn luat_gpio_open(cfg: *const LuatGpioCfg) -> c_int;
 }
 
@@ -107,6 +110,7 @@ pub struct GpioConfig {
 
 // impl GPIO {
     pub fn setup_output(cfg: &GpioConfig, level: GpioLevel) -> OutPut {
+        // crate::log::debug(format!("setup gpio pin {}", cfg.id));
         let conf = LuatGpioCfg{
             pin: cfg.id,
             mode: 0,
@@ -117,8 +121,9 @@ pub struct GpioConfig {
             irq_args: 0 as *const c_uchar,
             alt_fun: cfg.alt as u8
         };
+        // crate::log::debug(format!("setup gpio pin {}", conf.pin));
         unsafe {
-            luat_gpio_set_default_cfg(&conf);
+            //luat_gpio_set_default_cfg(&conf);
             let result = luat_gpio_open(&conf);
             if result == 0 {
                 
@@ -138,7 +143,7 @@ pub struct GpioConfig {
             alt_fun: cfg.alt as u8
         };
         unsafe {
-            luat_gpio_set_default_cfg(&conf);
+            // luat_gpio_set_default_cfg(&conf);
             let result = luat_gpio_open(&conf);
             if result == 0 {
                 
