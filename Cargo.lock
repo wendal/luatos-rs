@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "rust_to_c"
-version = "0.1.0"
+name = "luatos-rs"
+version = "0.1.1"

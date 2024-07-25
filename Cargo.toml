@@ -1,9 +1,21 @@
 [package]
-name = "rust_to_c"
-version = "0.1.0"
+name = "luatos-rs"
+version = "0.1.1"
 edition = "2021"
+description = "Rust for LuatOS"
+authors = ["Wendal Chen <wendal1985@gmail.com>"]
+categories = [
+    "embedded",
+    "no-std",
+]
+repository = "https://github.com/wendal/luatos-rs"
+license = "MIT"
+readme = "README.md"
 
 [lib]
 name = "luatuser"
 crate-type = ["staticlib"]
-path = "src/luat_user_main.rs"
+path = "src/lib.rs"
+
+[badges]
+maintenance = { status = "actively-developed" }
