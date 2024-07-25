@@ -1,7 +1,6 @@
 use core::ffi::{c_void, c_uchar, c_uint};
 use core::fmt;
 
-use alloc::fmt::format;
 use alloc::string::String;
 
 extern "C" {
@@ -23,7 +22,7 @@ pub struct LogOut {
 impl fmt::Write for LogOut {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         write(s);
-        Ok(())
+        fmt::Result::Ok(())
     }
 }
 
